@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.botframework.com/schemas/skills/v2.2/skill-manifest.json",
+  "name": "DocumentLayoutAnalyzer",
+  "description": "Analyzes layout and formatting of uploaded documents against templates.",
+  "endpoints": [
+    {
+      "name": "analyzeDocument",
+      "endpointUrl": "https://yourdomain.com/analyze-document",
+      "protocol": "REST",
+      "httpMethod": "POST",
+      "authentication": {
+        "type": "None"
+      },
+      "inputs": [
+        {
+          "name": "file",
+          "description": "The uploaded document file to analyze.",
+          "type": "file",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matched_template",
+          "description": "The name of the template that best matches the uploaded document.",
+          "type": "string"
+        },
+        {
+          "name": "layout_differences",
+          "description": "List of layout or formatting differences found.",
+          "type": "array"
+        },
+        {
+          "name": "compliance_issues",
+          "description": "List of compliance issues found in the document.",
+          "type": "array"
+        }
+      ]
+    }
+  ]
+}
